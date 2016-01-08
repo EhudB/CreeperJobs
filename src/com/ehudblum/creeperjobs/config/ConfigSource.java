@@ -5,10 +5,10 @@ import java.io.IOException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import com.ehudblum.creeperjobs.CreeperJobs;
 import com.ehudblum.creeperjobs.job.CJJob;
-import com.ehudblum.creeperjobs.job.CJJobConfigDataHandler;
+import com.ehudblum.creeperjobs.job.CJJobConfigHandler;
 import com.ehudblum.creeperjobs.party.CJParty;
 import com.ehudblum.creeperjobs.player.CJPlayer;
-import com.ehudblum.creeperjobs.player.CJPlayerConfigDataHandler;;
+import com.ehudblum.creeperjobs.player.CJPlayerConfigHandler;;
 
 public class ConfigSource implements DataSource {
 
@@ -30,14 +30,14 @@ public class ConfigSource implements DataSource {
             CreeperJobs.logInfo("Problem loading player: " + playerUUID + " .");
             return null;
         }
-        player = new CJPlayerConfigDataHandler(YamlConfiguration.loadConfiguration(playerFile)).parseDataFromConfig();
+        player = new CJPlayerConfigHandler(YamlConfiguration.loadConfiguration(playerFile)).parseDataFromConfig();
 
         return player;
     }
 
     @Override
     public void setPlayer(CJPlayer player) {
-        
+        ((CJPlayerConfigHandler)player.getDataHandler()).setDataToConfig(player);
     }
 
     @Override
@@ -48,14 +48,14 @@ public class ConfigSource implements DataSource {
             CreeperJobs.logInfo("Problem loading job: " + jobName + " .");
             return null;
         }
-        job = new CJJobConfigDataHandler(YamlConfiguration.loadConfiguration(jobFile)).parseDataFromConfig();
+        job = new CJJobConfigHandler(YamlConfiguration.loadConfiguration(jobFile)).parseDataFromConfig();
 
         return job;
     }
 
     @Override
     public void setJob(CJJob job) {
-        ((CJJobConfigDataHandler) job.getDataHandler()).setDataToConfig(job);
+        ((CJJobConfigHandler) job.getDataHandler()).setDataToConfig(job);
 
     }
 

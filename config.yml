@@ -1,9 +1,12 @@
+default-job: Unemployed
 jobs:
     - Unemployed
     - Lumberjack
     - Miner
     - Farmer
     - Hunter
+forbbiden-prefixes:
+	- IRC
 party:
     allowed: true
     default-slots: 5

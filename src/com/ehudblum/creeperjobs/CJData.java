@@ -34,9 +34,8 @@ public class CJData {
 
     public void load() {
         String dataFolderPath = CreeperJobs.getInstance().getDataFolder().getAbsolutePath();
-        source = new ConfigSource(dataFolderPath + "/players", dataFolderPath + "/parties", dataFolderPath + "jobs");
+        source = new ConfigSource(dataFolderPath + "/players", dataFolderPath + "/parties", dataFolderPath + "/jobs");
         // jobs = source.getJobs((String[]) CreeperJobs.getInstance().getConfig().getStringList("jobs").toArray());
-
     }
 
     public ArrayList<CJPlayer> getPlayers() {

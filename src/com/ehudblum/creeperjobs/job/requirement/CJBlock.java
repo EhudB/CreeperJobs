@@ -13,6 +13,10 @@ public class CJBlock extends CJBasicRequirement {
     public CJBlock(double exp, double reward, Material blockMaterial) {
         this(exp, reward, 0, blockMaterial);
     }
+    
+    public CJBlock(double exp, double reward, double dropRarity, String blockMaterial) {
+        this(exp, reward, dropRarity, Material.valueOf(blockMaterial));
+    }
 
     public CJBlock(double exp, double reward, double dropRarity, Material blockMaterial) {
         super(exp, reward, dropRarity);

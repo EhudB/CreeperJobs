@@ -4,7 +4,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 public abstract class DataHandler<T> {
     
-    private YamlConfiguration configFile;
+    protected YamlConfiguration configFile;
     
     public DataHandler(YamlConfiguration configFile) {
         this.configFile = configFile;

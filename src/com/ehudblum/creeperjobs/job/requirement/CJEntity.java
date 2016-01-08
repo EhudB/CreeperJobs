@@ -5,13 +5,9 @@ import org.bukkit.entity.EntityType;
 public class CJEntity extends CJBasicRequirement {
 
     private EntityType entity;
-
-    public CJEntity(double exp, double reward, String entity) {
-        this(exp, reward, EntityType.valueOf(entity));
-    }
-
-    public CJEntity(double exp, double reward, EntityType entity) {
-        this(exp, reward, 0, entity);
+    
+    public CJEntity(double exp, double reward, double dropRarity, String entity) {
+        this(exp, reward, dropRarity, EntityType.valueOf(entity));
     }
 
     public CJEntity(double exp, double reward, double dropRarity, EntityType entity) {

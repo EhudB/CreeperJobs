@@ -3,9 +3,9 @@ package com.ehudblum.creeperjobs.player;
 import org.bukkit.configuration.file.YamlConfiguration;
 import com.ehudblum.creeperjobs.config.DataHandler;
 
-public class CJPlayerConfigDataHandler extends DataHandler<CJPlayer>{
+public class CJPlayerConfigHandler extends DataHandler<CJPlayer> {
 
-    public CJPlayerConfigDataHandler(YamlConfiguration configFile) {
+    public CJPlayerConfigHandler(YamlConfiguration configFile) {
         super(configFile);
     }
 
@@ -15,7 +15,6 @@ public class CJPlayerConfigDataHandler extends DataHandler<CJPlayer>{
     }
 
     @Override
-    public void setDataToConfig(CJPlayer t) {
-    }
+    public void setDataToConfig(CJPlayer t) {}
 
 }
