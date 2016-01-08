@@ -1,4 +1,4 @@
-package com.ehudblum.creeperjobs.data;
+package com.ehudblum.creeperjobs.config;
 
 import java.util.ArrayList;
 
