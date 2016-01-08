@@ -1,10 +1,11 @@
 package com.ehudblum.creeperjobs.player;
 
 import com.ehudblum.creeperjobs.CreeperJobs;
+import com.ehudblum.creeperjobs.config.CJSerializable;
 import com.ehudblum.creeperjobs.job.CJJob;
 import com.ehudblum.creeperjobs.party.CJParty;
 
-public class CJPlayer
+public class CJPlayer extends CJSerializable
 {
 	private String playerUUID; 
 	private CJPlayerJob playerJob;
@@ -13,29 +14,31 @@ public class CJPlayer
 	private CJParty pendingParty;
 	private int maxPartySlots;
 	
-	public CJPlayer(String playerUUID)
+	public CJPlayer(CJPlayerConfigDataHandler dataHandler, String playerUUID)
 	{
-		this(playerUUID, null);
+		this(dataHandler, playerUUID, null);
 	}
 	
-	public CJPlayer(String playerUUID, CJPlayerJob playerJob)
+	public CJPlayer(CJPlayerConfigDataHandler dataHandler, String playerUUID, CJPlayerJob playerJob)
 	{
-		this(playerUUID, playerJob, null);
+		this(dataHandler, playerUUID, playerJob, null);
 	}
 	
-	public CJPlayer(String playerUUID, CJPlayerJob playerJob, CJParty playerParty)
+	public CJPlayer(CJPlayerConfigDataHandler dataHandler, String playerUUID, CJPlayerJob playerJob, CJParty playerParty)
 	{
-		this(playerUUID, playerJob, playerParty, true);
+		this(dataHandler, playerUUID, playerJob, playerParty, true);
 	}
 	
-	public CJPlayer(String playerUUID, CJPlayerJob playerJob, CJParty playerParty, boolean jobSpam)
+	public CJPlayer(CJPlayerConfigDataHandler dataHandler, String playerUUID, CJPlayerJob playerJob, CJParty playerParty, boolean jobSpam)
 	{
-		this(playerUUID, playerJob, playerParty, jobSpam, CreeperJobs.getData().partyDefaultSlots);
+		this(dataHandler, playerUUID, playerJob, playerParty, jobSpam, CreeperJobs.getData().partyDefaultSlots);
 	}
 	
 	
-	public CJPlayer(String playerUUID, CJPlayerJob playerJob, CJParty playerParty, boolean jobSpam, int maxPartySlots)
+	public CJPlayer(CJPlayerConfigDataHandler dataHandler, String playerUUID, CJPlayerJob playerJob,
+	        CJParty playerParty, boolean jobSpam, int maxPartySlots)
 	{
+	    super(dataHandler);
 		this.playerUUID = playerUUID;
 		this.playerParty = playerParty;
 		this.playerJob = playerJob;

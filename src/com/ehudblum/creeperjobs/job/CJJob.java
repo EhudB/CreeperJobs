@@ -1,8 +1,9 @@
 package com.ehudblum.creeperjobs.job;
 
 import org.bukkit.ChatColor;
+import com.ehudblum.creeperjobs.config.CJSerializable;
 
-public class CJJob {
+public class CJJob extends CJSerializable{
     private String jobName;
     private String jobDescription;
     private String expFormula;
@@ -10,23 +11,24 @@ public class CJJob {
     private ChatColor jobColor;
     private boolean isJobListed;
     
-    public CJJob(String jobName, String jobDescription, String expFormula, String rewardFormula,
+    public CJJob(CJJobConfigDataHandler dataHandler, String jobName, String jobDescription, String expFormula, String rewardFormula,
             String jobColor) {
-        this(jobName, jobDescription, expFormula, rewardFormula, jobColor, true);
+        this(dataHandler, jobName, jobDescription, expFormula, rewardFormula, jobColor, true);
     }
     
-    public CJJob(String jobName, String jobDescription, String expFormula, String rewardFormula,
+    public CJJob(CJJobConfigDataHandler dataHandler, String jobName, String jobDescription, String expFormula, String rewardFormula,
             ChatColor jobColor) {
-        this(jobName, jobDescription, expFormula, rewardFormula, jobColor, true);
+        this(dataHandler, jobName, jobDescription, expFormula, rewardFormula, jobColor, true);
     }
     
-    public CJJob(String jobName, String jobDescription, String expFormula, String rewardFormula,
+    public CJJob(CJJobConfigDataHandler dataHandler, String jobName, String jobDescription, String expFormula, String rewardFormula,
             String jobColor, boolean isJobListed) {
-        this(jobName, jobDescription, expFormula, rewardFormula, ChatColor.valueOf(jobColor), isJobListed);
+        this(dataHandler, jobName, jobDescription, expFormula, rewardFormula, ChatColor.valueOf(jobColor), isJobListed);
     }
 
-    public CJJob(String jobName, String jobDescription, String expFormula, String rewardFormula,
-            ChatColor jobColor, boolean isJobListed) {
+    public CJJob(CJJobConfigDataHandler dataHandler,String jobName, String jobDescription, String expFormula,
+            String rewardFormula, ChatColor jobColor, boolean isJobListed) {
+        super(dataHandler);
         this.jobName = jobName;
         this.jobDescription = jobDescription;
         this.expFormula = expFormula;

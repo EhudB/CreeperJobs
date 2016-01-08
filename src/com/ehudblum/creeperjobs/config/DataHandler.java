@@ -12,7 +12,7 @@ public abstract class DataHandler<T> {
     
     public abstract T parseDataFromConfig();
 
-    public abstract void setDataToConfig(String key, Object data);
+    public abstract void setDataToConfig(T t);
 
     /**
      * @return the configFile

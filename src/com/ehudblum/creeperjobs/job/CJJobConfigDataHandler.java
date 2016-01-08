@@ -3,9 +3,9 @@ package com.ehudblum.creeperjobs.job;
 import org.bukkit.configuration.file.YamlConfiguration;
 import com.ehudblum.creeperjobs.config.DataHandler;
 
-public class CJJobDataHandler extends DataHandler<CJJob>{
+public class CJJobConfigDataHandler extends DataHandler<CJJob>{
 
-    public CJJobDataHandler(YamlConfiguration configFile) {
+    public CJJobConfigDataHandler(YamlConfiguration configFile) {
         super(configFile);
     }
 
@@ -15,8 +15,8 @@ public class CJJobDataHandler extends DataHandler<CJJob>{
     }
 
     @Override
-    public void setDataToConfig(String key, Object data) {
+    public void setDataToConfig(CJJob t) {
+        // TODO Auto-generated method stub
         
     }
-
 }
