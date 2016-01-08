@@ -9,6 +9,21 @@ public class CJJob {
     private String rewardFormula;
     private ChatColor jobColor;
     private boolean isJobListed;
+    
+    public CJJob(String jobName, String jobDescription, String expFormula, String rewardFormula,
+            String jobColor) {
+        this(jobName, jobDescription, expFormula, rewardFormula, jobColor, true);
+    }
+    
+    public CJJob(String jobName, String jobDescription, String expFormula, String rewardFormula,
+            ChatColor jobColor) {
+        this(jobName, jobDescription, expFormula, rewardFormula, jobColor, true);
+    }
+    
+    public CJJob(String jobName, String jobDescription, String expFormula, String rewardFormula,
+            String jobColor, boolean isJobListed) {
+        this(jobName, jobDescription, expFormula, rewardFormula, ChatColor.valueOf(jobColor), isJobListed);
+    }
 
     public CJJob(String jobName, String jobDescription, String expFormula, String rewardFormula,
             ChatColor jobColor, boolean isJobListed) {
