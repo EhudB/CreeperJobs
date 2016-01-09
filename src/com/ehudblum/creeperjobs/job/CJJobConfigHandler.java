@@ -17,7 +17,7 @@ public class CJJobConfigHandler extends DataHandler<CJJob>{
 
     @Override
     public CJJob parseDataFromConfig() {
-        String jobName = this.configFile.getString("job_name", "");
+        String jobName = this.configFile.getString("job-name", "");
         String description = this.configFile.getString("description", "A default description");
         String expFormula = this.configFile.getString("reward-formula", CreeperJobs.getData().defaultExpFormula);
         String rewardFormula = this.configFile.getString("reward-formula", CreeperJobs.getData().defaultRewardFormula);

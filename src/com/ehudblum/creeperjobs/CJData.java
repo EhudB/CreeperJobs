@@ -1,6 +1,8 @@
 package com.ehudblum.creeperjobs;
 
 import java.util.ArrayList;
+import java.util.List;
+import org.bukkit.Bukkit;
 import com.ehudblum.creeperjobs.config.ConfigSource;
 import com.ehudblum.creeperjobs.config.DataSource;
 import com.ehudblum.creeperjobs.job.CJJob;
@@ -35,7 +37,43 @@ public class CJData {
     public void load() {
         String dataFolderPath = CreeperJobs.getInstance().getDataFolder().getAbsolutePath();
         source = new ConfigSource(dataFolderPath + "/players", dataFolderPath + "/parties", dataFolderPath + "/jobs");
-        // jobs = source.getJobs((String[]) CreeperJobs.getInstance().getConfig().getStringList("jobs").toArray());
+        this.loadJobs(CreeperJobs.getInstance().getConfig().getStringList("jobs"));
+        if (CreeperJobs.getInstance().getConfig().contains("default-job")) {
+            defaultJob = this.getJobFromName(CreeperJobs.getInstance().getConfig().getString("default-job"));
+        } else {
+            if (this.jobs.size() > 0) {
+                defaultJob = this.jobs.get(0);
+            } else {
+                defaultJob = null;
+            }
+        }
+    }
+
+    private void loadJobs(List<String> list) {
+        for (String jobName : list) {
+            if (!this.isJobRegistered(jobName)) {
+                this.jobs.add(this.source.getJob(jobName));
+                Bukkit.broadcastMessage("Loaded " + jobName + " from config");
+            }
+        }
+    }
+
+    private boolean isJobRegistered(String jobName) {
+        for (CJJob job : jobs) {
+            if (job.getJobName().equalsIgnoreCase(jobName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public CJJob getJobFromName(String jobName) {
+        for (CJJob job : this.jobs) {
+            if (job.getJobName().equalsIgnoreCase(jobName)) {
+                return job;
+            }
+        }
+        return null;
     }
 
     public ArrayList<CJPlayer> getPlayers() {

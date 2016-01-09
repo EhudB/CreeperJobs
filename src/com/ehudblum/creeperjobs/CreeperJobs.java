@@ -14,6 +14,8 @@ public class CreeperJobs extends JavaPlugin
 	public void onEnable()
 	{
 		instance = this;
+		this.saveDefaultConfig();
+		this.data.load();
 	}
 	
 	public void onDisable()
